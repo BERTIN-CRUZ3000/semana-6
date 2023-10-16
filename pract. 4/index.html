@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Números Primos</title>
+</head>
+<body>
+    <h2>Obtener números primos</h2>
+    <!--se obtiene los datos-->
+    <input type="number" id="numeros" placeholder="Ingrese un número entero positivo">
+    <button onclick="listarPrimos()">Listar números primos</button>
+    <p id="result"></p>
+    <script>
+        function listarPrimos() {
+            //se obtiene el id
+            const numeros = parseInt(document.getElementById("numeros").value);
+            if (isNaN(numeros) || numeros <= 0) {
+                document.getElementById("result").textContent = "Por favor, ingrese un número entero positivo";
+                return;
+            }
+            //se tiene el variable
+            let primos = [];
+            //se realiza la ecuacion 
+            for (let num = 2; num <= numeros; num++) {
+                let esPrimo = true;
+                for (let i = 2; i < num; i++) {
+                    if (num % i === 0) {
+                        esPrimo = false;
+                        break;
+                    }
+                }
+                if (esPrimo) {
+                    primos.push(num);
+                }
+            }
+            //se muestra el resultado en la consola
+            console.log(`Números primos entre 1 y  ${numeros} : ${primos} `);
+        }
+    </script>
+</body>
+</html>

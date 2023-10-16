@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Listas</title>
+</head>
+<body>
+    <h1>Generador de Listas</h1>
+    <!--el usuario ingresa los numeros-->
+    <p>Ingresa dos números enteros positivos:</p>
+    <input type="text" id="numero1" placeholder="Número 1">
+    <br><br>
+    <input type="text" id="numero2" placeholder="Número 2">
+    <br><br>
+    <button onclick="generarListas()">Generar Listas</button>
+
+    <script>
+        function generarListas() {
+            //se obtiene el id
+            const numero1 = parseInt(document.getElementById('numero1').value);
+            const numero2 = parseInt(document.getElementById('numero2').value);
+            //se da un valides
+            const listaAscendente = [];
+            const listaPares = [];
+            const listaImpares = [];
+            //se realiza el impar y el par
+            for (let i = Math.min(numero1, numero2); i <= Math.max(numero1, numero2); i++) {
+                listaAscendente.push(i);
+                if (i % 2 === 0) {
+                    listaPares.unshift(i);
+                } else {
+                    listaImpares.unshift(i);
+                }
+            }
+            //se muestra el resultado en la consola
+            console.log(`Lista Ascendente: ${listaAscendente}`);
+            console.log(`Lista de : ${listaPares}`);
+            console.log(`Lista de Impares : ${listaImpares}`);
+        }
+    </script>
+</body>
+</html>
